@@ -68,16 +68,10 @@
         </GridPane>
     </center>
     <bottom>
-        <ScrollPane fx:id="playlist" styleClass="main" prefHeight="150" fitToWidth="true">
+        <ScrollPane fx:id="playlist" styleClass="main" prefHeight="150" fitToWidth="true" onDragOver="#dragHandler" onDragDropped="#dropHandler">
             <VBox styleClass="plist">
                 <children>
-                    <Button text="Lorem Ipsum Dolor Sit Amet" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
-                    <Button text="Lorem Ipsum Dolor Sit Ametd" styleClass="transparent"/>
+                    <Button text="Lorem Ipsum Dolor Sit Amet" fx:id="song1" styleClass="transparent"/>
                 </children>
             </VBox>
         </ScrollPane>

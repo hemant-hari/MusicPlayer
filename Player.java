@@ -15,8 +15,9 @@ import javafx.stage.Stage;
 public class Player extends Application {
     private Media track;
     private MediaPlayer player;
+    private Boolean mediaLoaded = false;
 
-    private int listIndex;
+    private int listIndex = 0;
     private State st;
     private String currentFile;
     private List<String> playlist = new LinkedList<>();
@@ -24,17 +25,12 @@ public class Player extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         listIndex = 0;
-        System.out.println("op");
-        player = new MediaPlayer(track);
-        openFile("/Users/heman/Downloads/lovedramatic.mp3");
-        play();
     }
 
     Boolean openFile(String dir) {
         try {
             track = new Media(Paths.get(dir).toUri().toString());
             player = new MediaPlayer(track);
-            addTrack(dir);
             currentFile = dir;
             return true;
         } catch(Error e){
@@ -45,8 +41,9 @@ public class Player extends Application {
 
     public void play()
     {
-         player.play();
-         st = State.playing;
+        if (!mediaLoaded){openFile(playlist.get(0)); mediaLoaded = true;}
+        player.play();
+        st = State.playing;
     }
 
     public State pause(){
